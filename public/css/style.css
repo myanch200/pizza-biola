@@ -1,0 +1,40 @@
+/* import carousel */
+@import url('./_carousel.css');
+.navbar{
+  font-family: "La Belle Aurore", cursive;
+  font-size: 1.5rem;
+  display: flex;
+  width: 100%;
+  justify-content:  space-between;
+  height: 50px;
+  background-color: #070505;
+  color: white;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.8rem 0rem;
+}
+.site-name{
+  margin-left: 2rem;
+  color:  #EEAE32;
+  text-decoration: none;
+}
+
+.nav-items{
+  display: flex;
+  width: 60%;
+  height: 100%;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  color: #EEAE32;
+}
+.logo{
+  width: 50px;
+  height: 50px;
+
+}
+.nav-items p {
+  align-self: flex-end;
+}
+
+
