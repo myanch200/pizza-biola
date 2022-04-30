@@ -5,22 +5,21 @@
   <title>Document</title>
 
 </head>
-<body>
+<body class="bg-gray-900">
    {{>nav}}
      <div class="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item">
-            <img src="images/pizza.jpeg" alt="" srcset="">
-          </div>
-          <div class="carousel-item">
-            <img src="images/pizza.jpeg" alt="" srcset="">
-          </div>
-          <div class="carousel-item">
-            <img src="images/pizza.jpeg" alt="" srcset="">
-          </div>
+         <button class="carousel-button-left bg-slate-600 p-2 rounded hover:bg-slate-700">&#10094;</button>
+        <div class="carousel-item active rounded-[10px]">
+          <img class="rounded-lg" src="images/pizza.jpeg" alt="">
         </div>
+        <div class="carousel-item">
+          <img src="images/pizza-2.jpeg" alt="">
+        </div>
+        <div class="carousel-item">
+          <img src="images/pizza-3.jpeg" alt="">
+        </div>
+        <button class="carousel-button-right bg-slate-600 p-2 rounded hover:bg-slate-700">&#10095;</button>
      </div>
-
   {{>scripts}}
 </body>
 </html>
