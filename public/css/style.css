@@ -5,7 +5,10 @@
 
 /* import carousel */
 @import url('./_carousel.css');
+.font-belle{
+  font-family: "La Belle Aurore", cursive;
 
+}
 .navbar{
   font-family: "La Belle Aurore", cursive;
   font-size: 1.5rem;

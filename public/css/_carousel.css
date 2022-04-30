@@ -8,7 +8,6 @@
 }
 
 .carousel-item{
- 
   width: 70%;
   height: 70%;
   background-size: cover;
@@ -23,10 +22,6 @@
   animation: fadeIn 1s;
 }
 
-.controll-buttons{
-
-  
-}
 
 @keyframes fadeIn {
   from {
