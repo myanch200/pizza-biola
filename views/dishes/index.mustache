@@ -32,13 +32,16 @@
         <img class="w-full" src="images/{{image}}" alt="">
         <div class="p-4">
           <h3 class="text-yellow-500 font-belle text-2xl">{{name}}</h3>
-          
           <p class="text-yellow-500 font-belle text-xl">{{description}}</p>
           <p class="text-yellow-500 font-belle text-xl">{{price}}</p>
+          <div class="my-2 align-center">
+            <a href="/dishes/{{_id}}" class="bg-yellow-500 hover:bg-yellow-600 text-gray-800 py-2 px-4 rounded-lg my-5">View</a>
+          </div>
         </div>
       </div>
       {{/dishes}}
     </div>
+  </div>
   {{>scripts}}
 </body>
 </html>

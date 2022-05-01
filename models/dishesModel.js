@@ -11,6 +11,7 @@ class Dish {
     }
 
   init(){
+    
     this.db.insert( seeds.dishes, (err, newDoc) => {
       if(err){
         console.log(err);
@@ -19,7 +20,8 @@ class Dish {
         console.log('Seeded DB with ' + newDoc.length + ' dishes');
       }
     });
-  }
+  
+}
 
   getAllDishes(){
     return new Promise((resolve, reject) => {

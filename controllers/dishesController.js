@@ -21,3 +21,20 @@ exports.index = (req, res) => {
         console.log(err);
       });
 };
+
+exports.dishDetail = (req, res) => {
+  
+  db.getDish(req.params.id)
+    .then(dish => {
+      console.log(dish);
+      res.render('dishes/detail', {dish: dish});
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+
+exports.test = (req, res) => {
+  res.send('Hello from the test controller!');
+};
