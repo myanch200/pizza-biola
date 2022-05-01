@@ -38,3 +38,7 @@ exports.dishDetail = (req, res) => {
 exports.test = (req, res) => {
   res.send('Hello from the test controller!');
 };
+
+exports.aboutUs = (req, res) => {
+  res.render('dishes/about',{});
+}
