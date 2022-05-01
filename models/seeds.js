@@ -7,6 +7,7 @@ exports.dishes = [
     description: 'Pizza is a savory dish of Italian origin, consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients (anchovies, olives, meat, etc.) baked at a high temperature, traditionally in a wood-fired oven.',
     price: '£10.00',
     image: 'pizza-2.jpeg' ,
+    show_on_menu: true,
     votes: 1,
     ingredients: [
       {
@@ -46,7 +47,50 @@ exports.dishes = [
     description: 'Pizza is a savory dish of Italian origin, consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients (anchovies, olives, meat, etc.) baked at a high temperature, traditionally in a wood-fired oven.',
     price: '£12.00',
     image: 'pizza.jpeg',
+    show_on_menu: true,
     votes: 2,
     _id: "vKEq3ML9y947pvhA"
+  },
+  {
+    id: 3,
+    name: "Pizza Biola",
+    description: 'Pizza is a savory dish of Italian origin, consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients (anchovies, olives, meat, etc.) baked at a high temperature, traditionally in a wood-fired oven.',
+    price: '£12.00',
+    image: 'pizza-3.jpeg' ,
+    show_on_menu: true,
+    ingredients: [
+      {
+        _id: 1,
+        name: 'Tomato',
+
+      },
+      {
+        _id: 2,
+        name: 'Cheese',
+
+      },
+      {
+        _id: 3,
+        name: 'Pineapple',
+      }
+      
+    ],
+    allergies: [
+      {
+        _id: 1,
+        name: 'Tomatoes'
+      },
+      {
+        _id: 2,
+        name: 'Milk'
+      },
+      {
+        _id: 3,
+        name: 'Eggs'
+      }
+    ],
+    votes: 1,
+    _id: "RwbxJnE0S3TPZcLX"
+  
   }
 ]
