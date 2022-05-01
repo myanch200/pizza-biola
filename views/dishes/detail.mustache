@@ -7,10 +7,71 @@
 </head>
 <body class="bg-gray-900">
    {{>nav}}
-   <h1 class="text-yellow-600 text-center text-4xl font-bold mb-4">
+  
     {{#dish}}
+     <div class="w-full flex justify-center my-2">
+      <img src="/images/{{image}}" alt="{{name}}" class="thumbnail-img rounded">
+    </div>
+    <div class="flex flex-col items-center md:flex-row space-between">
+      <!-- center h1 -->
+      <div class="w-1/3 flex flex-col justify-center">
+      </div>
+      <!-- right h1 -->
+      <div class="w-1/3 flex flex-col justify-center">
+        <h1 class="text-yellow-600 text-center text-4xl font-bold mb-4 font-belle">{{name}}</h1>
+      </div>
+      <div class="w-1/3 flex flex-col items-center md:flex-row md:space-x-6">
+        <h1 class="text-3xl text-yellow-600 font-bold font-belle">
+          Total votes: {{votes}}</h1>
+          <button class="bg-gray-800 flex w-1/2 p-2 rounded  text-white
+                         font-bold m-2 px-4 font-belle justify-center
+                         hover:bg-yellow-700">
 
-    {{name}}
+            <svg  width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 8H16.7639C18.2507 8 19.2177 9.56463 18.5528 10.8944L15.0528 17.8944C14.714 18.572 14.0215 19 13.2639 19H9.24621C9.08269 19 8.91978 18.9799 8.76114 18.9403L5 18M12 8V3C12 1.89543 11.1046 1 10 1H9.90453C9.40497 1 9 1.40497 9 1.90453C9 2.61883 8.78857 3.31715 8.39234 3.91149L5 9V18M12 8H10M5 18H3C1.89543 18 1 17.1046 1 16V10C1 8.89543 1.89543 8 3 8H5.5" stroke="#eee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+      </div>
+
+
+    </div>
+    <div class="container mx-auto p-4">
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-yellow-700 text-xs font-bold mb-2 border-b-2 border-yellow-700" for="grid-first-name">
+            Ingredients
+          </label>
+          <div class="text-yellow-700 flex flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0">
+            {{#ingredients}}
+            <div class="flex items-center bg-gray-800 p-4">
+              <p class="text-yellow-700">{{name}}</p>
+            </div>
+            {{/ingredients}}
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 px-3">
+          <label class="block uppercase tracking-wide text-yellow-700 text-xs font-bold mb-2 border-b-2 border-yellow-700" for="grid-last-name">
+            Description
+          </label>
+          <div class="text-gray-500">
+            {{description}}
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-yellow-700 text-xs font-bold mb-2 border-b-2 border-yellow-700" for="grid-first-name">
+            Allergies
+          </label>
+          <div class="text-yellow-700 flex flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0">
+            {{#allergies}}
+            <div class="flex items-center bg-red-600 p-4">
+              <p class="text-white">{{name}}</p>
+            </div>
+            {{/allergies}}
+          </div>
+        </div>
+      </div>
+    </div>
+
     {{/dish}}
-  </h1>
 </body>

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -e js,mustache,css ./index.js"
+    "start": "DEBUG=express:* nodemon -e js,mustache,css ./index.js"
   },
   "keywords": [],
   "author": "",

@@ -8,6 +8,37 @@ exports.dishes = [
     price: '£10.00',
     image: 'pizza-2.jpeg' ,
     votes: 1,
+    ingredients: [
+      {
+        _id: 1,
+        name: 'Tomato',
+
+      },
+      {
+        _id: 2,
+        name: 'Cheese',
+
+      },
+      {
+        _id: 3,
+        name: 'Pineapple',
+      }
+    ],
+    allergies: [
+      {
+        _id: 1,
+        name: 'Tomatoes'
+      },
+      {
+        _id: 2,
+        name: 'Milk'
+      },
+      {
+        _id: 3,
+        name: 'Eggs'
+      }
+    ],
+    _id: "RwbxJnE0S3TPZcXL"
   },
   {
     id: 2,
@@ -16,5 +47,6 @@ exports.dishes = [
     price: '£12.00',
     image: 'pizza.jpeg',
     votes: 2,
+    _id: "vKEq3ML9y947pvhA"
   }
 ]
