@@ -26,7 +26,6 @@ exports.dishDetail = (req, res) => {
   
   db.getDish(req.params.id)
     .then(dish => {
-      console.log(dish);
       res.render('dishes/detail', {dish: dish});
     })
     .catch(err => {
@@ -41,4 +40,17 @@ exports.test = (req, res) => {
 
 exports.aboutUs = (req, res) => {
   res.render('dishes/about',{});
+}
+
+exports.menu_page = (req, res) => {
+  db.getAllDishes()
+    .then(dishes => {
+      let pizzas = dishes.filter(dish => dish.category === 'pizza');
+      let pasta = dishes.filter(dish => dish.category === 'pasta');
+      console.log(pasta)
+      res.render('dishes/menu', {pizzas: pizzas, pastas: pasta});
+    })
+    .catch(err => {
+      console.log(err);
+    });
 }

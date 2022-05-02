@@ -46,6 +46,19 @@ class Dish {
       });
     });
   }
+  getByCategory(category){
+    return new Promise((resolve, reject) => {
+      this.db.find({category: category}, (err, docs) => {
+        if(err){
+          console.log("Error: " + err);
+          reject(err);
+          
+        } else {
+          resolve(docs);
+        }
+      });
+    });
+  }
 
   addDish(dish){
     return new Promise((resolve, reject) => {
