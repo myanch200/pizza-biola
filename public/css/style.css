@@ -1,8 +1,4 @@
 
-
-
-
-
 /* import carousel */
 @import url('./_carousel.css');
 .font-belle{
@@ -53,4 +49,10 @@
   background-position: center;
   background-repeat: no-repeat;
 
+}
+.card-image{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+ 
 }

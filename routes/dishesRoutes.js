@@ -3,6 +3,7 @@ const router = express.Router({ mergeParams: true });
 const controller = require('../controllers/dishesController');
 
 router.get('/about', controller.aboutUs);
+router.get('/menu', controller.menu_page);
 router.get('/dishes/:id', controller.dishDetail);
 router.get('/', controller.index);
 
