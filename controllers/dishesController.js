@@ -1,5 +1,6 @@
 const dishesDAO = require("../models/dishesModel");
 const db = new dishesDAO();
+const bcrypt = require('bcrypt');
 
 db.init();
 exports.index = (req, res) => {

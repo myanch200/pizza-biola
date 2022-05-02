@@ -25,7 +25,7 @@ class Dish {
 
   getAllDishes(){
     return new Promise((resolve, reject) => {
-      this.db.find({}, (err, docs) => {
+      this.db.find({show_on_menu:true}, (err, docs) => {
         if(err){
           reject(err);
         } else {

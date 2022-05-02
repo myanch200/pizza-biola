@@ -134,3 +134,14 @@ exports.dishes = [
   }
 
 ]
+
+exports.users = [
+  {
+    email: "myanch200@caledonian.ac.uk",
+    password: "$2b$10$WGfczyTjx3eXYBDc8TeTPeWWQn74BT9GSzgQYrZII/XYB7RXk9mRe"  //nicepass
+  },
+  {
+    email: "example@gmail.com",
+    password: "$2a$10$CJnsokrYBY5RC9GLQYxzMOVUtAShoPoIbkPK2gaR2RjUGQJz/xZQu" //example
+  }
+]

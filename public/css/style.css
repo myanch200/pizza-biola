@@ -56,3 +56,14 @@
   border-radius: 50%;
  
 }
+
+#loginForm {
+
+}
+
+.form-input{
+  outline: none;
+}
+.login-submit{
+  cursor: pointer;
+}
