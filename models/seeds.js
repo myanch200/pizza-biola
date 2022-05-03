@@ -138,7 +138,7 @@ exports.dishes = [
 exports.users = [
   {
     email: "myanch200@caledonian.ac.uk",
-    password: "$2b$10$WGfczyTjx3eXYBDc8TeTPeWWQn74BT9GSzgQYrZII/XYB7RXk9mRe"  //nicepass
+    password: "$2b$10$ZPpBlmHSSixaePWAnL1JVOKy94Q1nOeQMMF4W5dF9H1MKGuTd6..m"  //nicepass
   },
   {
     email: "example@gmail.com",

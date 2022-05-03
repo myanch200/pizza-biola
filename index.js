@@ -3,13 +3,17 @@ const app = express();
 const bodyParser = require('body-parser');
 const mustache = require('mustache-express');
 const dishesRouter = require('./routes/dishesRoutes');
+const cookieParser = require('cookie-parser') 
+require('dotenv').config();
 app.use(express.urlencoded({extended: false }));
 
 
 const path = require('path');
 const public = path.join(__dirname,'public');
-app.use(express.static(public));
 
+
+app.use(express.static(public));
+app.use(cookieParser())
 
 app.set('view engine', 'mustache');
 app.engine('mustache', mustache());

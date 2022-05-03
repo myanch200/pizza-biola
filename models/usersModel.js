@@ -19,6 +19,7 @@ class UserDAO {
         console.log(err);
       } else {
         console.log("Seeded DB with " + newDoc.length + " users");
+        console.log(newDoc);
       }
     });
     return this;
@@ -38,7 +39,7 @@ class UserDAO {
     });
   }
   lookup(user, cb) {
-    this.db.find({ user: user }, function (err, entries) {
+    this.db.find({ email: user }, function (err, entries) {
       if (err) {
         return cb(null, null);
       } else {
