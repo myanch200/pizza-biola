@@ -8,7 +8,7 @@ router.get('/dishes/:id', controller.dishDetail);
 router.get('/', controller.index);
 router.get('/login', userController.login_page);
 router.post('/login', userController.login);
-
+router.get('/admin', controller.admin_page);
 router.use(function(req, res) {
   res.status(404);
   res.type('text/plain');

@@ -1,5 +1,6 @@
 const userDao = require('../models/usersModel.js');
-
+const dishDao = require('../models/dishesModel.js');
+const db = new dishDao();
 exports.login_page = (req, res) => {
   res.render('users/login', {});
 }

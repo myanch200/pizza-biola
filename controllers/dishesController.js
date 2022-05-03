@@ -55,3 +55,14 @@ exports.menu_page = (req, res) => {
       console.log(err);
     });
 }
+
+exports.admin_page = (req, res) => {
+  db.getDishesForAdmin()
+    .then(dishes => {
+      console.log(`Here are the dishes ${dishes}`);
+      res.render('users/admin', { dishes });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}

@@ -35,6 +35,21 @@ class Dish {
     });
   }
 
+  getDishesForAdmin(){
+    return new Promise((resolve, reject) => {
+      this.db.find({}, (err, docs) => {
+        if(err){
+          reject(err);
+        } else {
+          console.log(docs);
+          resolve(docs);
+        }
+      });
+    });
+  }
+  
+
+
   getDish(id){
     return new Promise((resolve, reject) => {
       this.db.findOne({_id: id}, (err, doc) => {
