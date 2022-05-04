@@ -108,6 +108,13 @@ exports.dish_edit = (req, res) => {
     });
 }
   
+exports.dish_add_page = (req, res) => {
+  res.render('dishes/add', {});
+}
+
+exports.dish_add = (req, res) => {
+
+}
 exports.delete_dish = (req, res) => {
   db.deleteDish(req.params.id)
     .then(() => {

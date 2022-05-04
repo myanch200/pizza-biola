@@ -7,6 +7,8 @@ router.get('/menu', controller.menu_page);
 router.get('/dishes/delete/:id',controller.delete_dish);
 router.get('/dishes/edit/:id', controller.dish_edit_page);
 router.post('/dishes/edit/:id', controller.dish_edit);
+router.get('/dishes/add', controller.dish_add_page);
+router.post('/dishes/add', controller.dish_add);
 router.get('/dishes/:id', controller.dishDetail);
 router.get('/', controller.index);
 router.get('/login', userController.login_page);
