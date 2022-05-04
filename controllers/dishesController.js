@@ -95,6 +95,7 @@ exports.dish_edit = (req, res) => {
     price: req.body.price,
     ingredients: req.body.ingredients.split(','),
     allergies: req.body.allergies.split(', '),
+    image: req.body.category === 'pizza' ? 'pizza.jpeg' : 'pasta.jpeg', 
     show_on_menu: req.body.show_on_menu
   }
   console.log(req.body.show_on_menu);
@@ -113,7 +114,29 @@ exports.dish_add_page = (req, res) => {
 }
 
 exports.dish_add = (req, res) => {
-
+  if(req.body.show_on_menu === 'on'){
+    req.body.show_on_menu = true;
+  } else {
+    req.body.show_on_menu = false;
+  }
+  let dish = {
+    name: req.body.name,
+    description: req.body.description,
+    category: req.body.category,
+    price: req.body.price,
+    ingredients: req.body.ingredients.split(','),
+    allergies: req.body.allergies.split(', '),
+    show_on_menu: req.body.show_on_menu,
+    image: req.body.category === 'pizza' ? 'pizza.jpeg' : 'pasta.jpeg', 
+    votes: 0
+}
+  db.addDish(dish)
+    .then(() => {
+      res.redirect('/admin');
+    }).catch(err => {
+      console.log(err);
+    }
+  );
 }
 exports.delete_dish = (req, res) => {
   db.deleteDish(req.params.id)

@@ -99,6 +99,7 @@ class Dish {
           doc.price = dish.price;
           doc.ingredients = dish.ingredients;
           doc.allergies = dish.allergies;
+          doc.image = dish.image;
           doc.show_on_menu = dish.show_on_menu || false;
           this.db.update({_id: id}, doc, {}, (err, numReplaced) => {
             if(err){
