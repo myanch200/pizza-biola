@@ -41,7 +41,6 @@ class Dish {
         if(err){
           reject(err);
         } else {
-          console.log(docs);
           resolve(docs);
         }
       });
@@ -88,12 +87,27 @@ class Dish {
   }
 
   updateDish(id, dish){
+    console.log("Dish in model update: " ,dish);
     return new Promise((resolve, reject) => {
-      this.db.update({_id: id}, dish, {}, (err, numReplaced) => {
+      this.db.findOne({_id:id}, (err, doc) => {
         if(err){
           reject(err);
         } else {
-          resolve(numReplaced);
+          console.log(dish.ingredients);
+          doc.name = dish.name;
+          doc.description = dish.description;
+          doc.category = dish.category;
+          doc.price = dish.price;
+          doc.ingredients = dish.ingredients;
+          doc.allergies = dish.allergies;
+          doc.show_on_menu = dish.show_on_menu || true;
+          this.db.update({_id: id}, doc, {}, (err, numReplaced) => {
+            if(err){
+              reject(err);
+            } else {
+              resolve(numReplaced);
+            }
+          });
         }
       });
     });

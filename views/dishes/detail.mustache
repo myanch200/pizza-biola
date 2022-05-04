@@ -45,7 +45,7 @@
           <div class="text-yellow-700 flex flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0">
             {{#ingredients}}
             <div class="flex items-center bg-gray-800 p-4">
-              <p class="text-yellow-700">{{name}}</p>
+              <p class="text-yellow-700">{{.}}</p>
             </div>
             {{/ingredients}}
           </div>
@@ -65,7 +65,7 @@
           <div class="text-yellow-700 flex flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0">
             {{#allergies}}
             <div class="flex items-center bg-red-600 p-4">
-              <p class="text-white">{{name}}</p>
+              <p class="text-white">{{.}}</p>
             </div>
             {{/allergies}}
           </div>

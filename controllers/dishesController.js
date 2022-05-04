@@ -48,7 +48,6 @@ exports.menu_page = (req, res) => {
     .then(dishes => {
       let pizzas = dishes.filter(dish => dish.category === 'pizza');
       let pasta = dishes.filter(dish => dish.category === 'pasta');
-      console.log(pasta)
       res.render('dishes/menu', {pizzas: pizzas, pastas: pasta});
     })
     .catch(err => {
@@ -59,7 +58,6 @@ exports.menu_page = (req, res) => {
 exports.admin_page = (req, res) => {
   db.getDishesForAdmin()
     .then(dishes => {
-      console.log(`Here are the dishes ${dishes}`);
       res.render('users/admin', { dishes });
     })
     .catch(err => {
@@ -71,13 +69,39 @@ exports.admin_page = (req, res) => {
 exports.dish_edit_page = (req, res) => {
   db.getDish(req.params.id)
     .then(dish => {
-      res.render('dishes/edit', { dish: dish });
+      let ingredients = dish.ingredients.map(ingredient => ingredient).join(', ');
+      let allergies = dish.allergies.map(allergy => allergy).join(', ');
+      res.render('dishes/edit', { 
+        dish: dish ,
+        dish_ingredients: ingredients,
+        dish_allergies: allergies
+      });
     })
     .catch(err => {
       console.log(err);
     });
 }
 
+exports.dish_edit = (req, res) => {
+  let dish = {
+    name: req.body.name,
+    description: req.body.description,
+    category: req.body.category,
+    price: req.body.price,
+    ingredients: req.body.ingredients.split(','),
+    allergies: req.body.allergies.split(', '),
+    show_on_menu: req.body.show_on_menu
+  }
+  console.log(dish);
+  db.updateDish(req.params.id, dish)
+    .then(() => {
+      res.redirect('/admin');
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+  
 exports.delete_dish = (req, res) => {
   db.deleteDish(req.params.id)
     .then(() => {
@@ -87,3 +111,4 @@ exports.delete_dish = (req, res) => {
       console.log(err);
     });
 }
+

@@ -19,7 +19,6 @@ class UserDAO {
         console.log(err);
       } else {
         console.log("Seeded DB with " + newDoc.length + " users");
-        console.log(newDoc);
       }
     });
     return this;
