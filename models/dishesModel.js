@@ -87,7 +87,6 @@ class Dish {
   }
 
   updateDish(id, dish){
-    console.log("Dish in model update: " ,dish);
     return new Promise((resolve, reject) => {
       this.db.findOne({_id:id}, (err, doc) => {
         if(err){
@@ -100,7 +99,7 @@ class Dish {
           doc.price = dish.price;
           doc.ingredients = dish.ingredients;
           doc.allergies = dish.allergies;
-          doc.show_on_menu = dish.show_on_menu || true;
+          doc.show_on_menu = dish.show_on_menu || false;
           this.db.update({_id: id}, doc, {}, (err, numReplaced) => {
             if(err){
               reject(err);

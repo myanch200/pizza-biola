@@ -28,6 +28,9 @@
     </span>
   </th>
   <th scope="col" class="px-6 py-3">
+    Show on menu
+  </th>
+  <th scope="col" class="px-6 py-3">
   <span class="sr-only">Edit</span>
   </th>
   <th scope="col" class="px-6 py-3">
@@ -52,6 +55,16 @@
     </td>
     <td class="px-6 py-4">
     {{price}}
+    </td>
+    <td>
+    <span class="p-2 bg-green-500 text-white rounded">
+
+      {{#show_on_menu}}
+        Yes
+      {{/show_on_menu}}
+      {{^show_on_menu}}
+        No
+      {{/show_on_menu}}
     </td>
     <td class="px-6 py-4 text-right">
     <a href="dishes/edit/{{_id}}" class="font-medium text-blue-600 text-blue-500 hover:underline">Edit</a>

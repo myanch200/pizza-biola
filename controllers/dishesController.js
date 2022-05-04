@@ -83,6 +83,11 @@ exports.dish_edit_page = (req, res) => {
 }
 
 exports.dish_edit = (req, res) => {
+  if(req.body.show_on_menu === 'on'){
+    req.body.show_on_menu = true;
+  } else {
+    req.body.show_on_menu = false;
+  }
   let dish = {
     name: req.body.name,
     description: req.body.description,
@@ -92,7 +97,8 @@ exports.dish_edit = (req, res) => {
     allergies: req.body.allergies.split(', '),
     show_on_menu: req.body.show_on_menu
   }
-  console.log(dish);
+  console.log(req.body.show_on_menu);
+  console.log(dish.show_on_menu);
   db.updateDish(req.params.id, dish)
     .then(() => {
       res.redirect('/admin');
