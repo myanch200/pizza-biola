@@ -16,13 +16,16 @@
   Name
   </th>
   <th scope="col" class="px-6 py-3">
-  Category
+    Category
   </th>
   <th scope="col" class="px-6 py-3">
   Description
   </th>
   <th scope="col" class="px-6 py-3">
-  Price
+    <span class="p-4 bg-yellow-500 text-gray-700">
+
+      Price
+    </span>
   </th>
   <th scope="col" class="px-6 py-3">
   <span class="sr-only">Edit</span>
@@ -39,7 +42,10 @@
     {{name}}
     </th>
     <td class="px-6 py-4">
-    {{category}}
+      <span class="p-2 bg-green-500 text-white rounded">
+
+        {{category}}
+      </span>
     </td>
     <td class="px-6 py-4">
     {{description}}
@@ -51,7 +57,7 @@
     <a href="#" class="font-medium text-blue-600 text-blue-500 hover:underline">Edit</a>
     </td>
     <td>
-    <a href="#" class="font-medium text-red-600 text-red-500 hover:underline p-4">Delete</a>
+    <a href="dishes/delete/{{_id}}" class="font-medium text-red-600 text-red-500 hover:underline p-4">Delete</a>
     </td>
     </tr>
     </tbody>

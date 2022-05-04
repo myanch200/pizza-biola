@@ -4,6 +4,7 @@ const controller = require('../controllers/dishesController');
 const userController = require('../controllers/usersController');
 router.get('/about', controller.aboutUs);
 router.get('/menu', controller.menu_page);
+router.get('/dishes/delete/:id',controller.delete_dish);
 router.get('/dishes/:id', controller.dishDetail);
 router.get('/', controller.index);
 router.get('/login', userController.login_page);

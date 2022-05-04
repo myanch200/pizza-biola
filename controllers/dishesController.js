@@ -66,3 +66,24 @@ exports.admin_page = (req, res) => {
       console.log(err);
     });
 }
+
+
+exports.dish_edit_page = (req, res) => {
+  db.getDish(req.params.id)
+    .then(dish => {
+      res.render('dishes/edit', { dish: dish });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+exports.delete_dish = (req, res) => {
+  db.deleteDish(req.params.id)
+    .then(() => {
+      res.redirect('/admin');
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
