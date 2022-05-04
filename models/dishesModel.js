@@ -1,32 +1,36 @@
-const nedb = require('nedb');
-const seeds = require('./seeds');
+const nedb = require("nedb");
+const seeds = require("./seeds");
 class Dish {
   constructor(dbFilePath) {
     if (dbFilePath) {
-    this.db = new nedb({ filename: dbFilePath, autoload: true });
-    console.log('DB connected to ' + dbFilePath);
+      this.db = new nedb({ filename: dbFilePath, autoload: true });
+      console.log("DB connected to " + dbFilePath);
+      this.db_initialized = true;
     } else {
-    this.db = new nedb();
+      console.log("No DB file path provided");
+      this.db = new nedb();
+      this.db_initialized = false;
     }
-    }
+  }
 
-  init(){
-    
-    this.db.insert( seeds.dishes, (err, newDoc) => {
-      if(err){
-        console.log(err);
-      }
-      else{
-        console.log('Seeded DB with ' + newDoc.length + ' dishes');
-      }
-    });
-  
-}
-
-  getAllDishes(){
-    return new Promise((resolve, reject) => {
-      this.db.find({show_on_menu:true}, (err, docs) => {
+  init() {
+    // if the db is newly created seed with some data
+    if (!this.db_initialized) {
+      this.db.insert( seeds.dishes, (err, newDoc) => {
         if(err){
+          console.log(err);
+        }
+        else{
+          console.log('Seeded DB with ' + newDoc.length + ' dishes');
+        }
+      });
+    }
+  }
+
+  getAllDishes() {
+    return new Promise((resolve, reject) => {
+      this.db.find({ show_on_menu: true }, (err, docs) => {
+        if (err) {
           reject(err);
         } else {
           resolve(docs);
@@ -35,10 +39,10 @@ class Dish {
     });
   }
 
-  getDishesForAdmin(){
+  getDishesForAdmin() {
     return new Promise((resolve, reject) => {
       this.db.find({}, (err, docs) => {
-        if(err){
+        if (err) {
           reject(err);
         } else {
           resolve(docs);
@@ -46,13 +50,11 @@ class Dish {
       });
     });
   }
-  
 
-
-  getDish(id){
+  getDish(id) {
     return new Promise((resolve, reject) => {
-      this.db.findOne({_id: id}, (err, doc) => {
-        if(err){
+      this.db.findOne({ _id: id }, (err, doc) => {
+        if (err) {
           reject(err);
         } else {
           resolve(doc);
@@ -60,13 +62,12 @@ class Dish {
       });
     });
   }
-  getByCategory(category){
+  getByCategory(category) {
     return new Promise((resolve, reject) => {
-      this.db.find({category: category}, (err, docs) => {
-        if(err){
+      this.db.find({ category: category }, (err, docs) => {
+        if (err) {
           console.log("Error: " + err);
           reject(err);
-          
         } else {
           resolve(docs);
         }
@@ -74,10 +75,10 @@ class Dish {
     });
   }
 
-  addDish(dish){
+  addDish(dish) {
     return new Promise((resolve, reject) => {
       this.db.insert(dish, (err, newDoc) => {
-        if(err){
+        if (err) {
           reject(err);
         } else {
           resolve(newDoc);
@@ -86,10 +87,10 @@ class Dish {
     });
   }
 
-  updateDish(id, dish){
+  updateDish(id, dish) {
     return new Promise((resolve, reject) => {
-      this.db.findOne({_id:id}, (err, doc) => {
-        if(err){
+      this.db.findOne({ _id: id }, (err, doc) => {
+        if (err) {
           reject(err);
         } else {
           console.log(dish.ingredients);
@@ -101,8 +102,8 @@ class Dish {
           doc.allergies = dish.allergies;
           doc.image = dish.image;
           doc.show_on_menu = dish.show_on_menu || false;
-          this.db.update({_id: id}, doc, {}, (err, numReplaced) => {
-            if(err){
+          this.db.update({ _id: id }, doc, {}, (err, numReplaced) => {
+            if (err) {
               reject(err);
             } else {
               resolve(numReplaced);
@@ -113,10 +114,10 @@ class Dish {
     });
   }
 
-  deleteDish(id){
+  deleteDish(id) {
     return new Promise((resolve, reject) => {
-      this.db.remove({_id: id}, {}, (err, numRemoved) => {
-        if(err){
+      this.db.remove({ _id: id }, {}, (err, numRemoved) => {
+        if (err) {
           reject(err);
         } else {
           resolve(numRemoved);
@@ -125,10 +126,10 @@ class Dish {
     });
   }
 
-  getMostVotedDishes(){
+  getMostVotedDishes() {
     return new Promise((resolve, reject) => {
       this.db.find({}, (err, docs) => {
-        if(err){
+        if (err) {
           reject(err);
         } else {
           resolve(docs.sort((a, b) => b.votes - a.votes));
@@ -136,7 +137,6 @@ class Dish {
       });
     });
   }
-  
 }
 
-module.exports = Dish
+module.exports = Dish;

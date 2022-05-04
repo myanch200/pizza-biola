@@ -1,5 +1,5 @@
 const dishesDAO = require("../models/dishesModel");
-const db = new dishesDAO();
+const db = new dishesDAO("dishes.nedb");
 const bcrypt = require('bcrypt');
 
 db.init();
