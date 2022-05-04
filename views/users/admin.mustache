@@ -57,13 +57,17 @@
     {{price}}
     </td>
     <td>
-    <span class="p-2 bg-green-500 text-white rounded">
+    
 
       {{#show_on_menu}}
+      <span class="p-2 bg-green-500 text-white rounded">
         Yes
+      </span>
       {{/show_on_menu}}
       {{^show_on_menu}}
-        No
+      <span class="p-2 bg-orange-500 text-white rounded">
+      NO
+    </span>
       {{/show_on_menu}}
     </td>
     <td class="px-6 py-4 text-right">
