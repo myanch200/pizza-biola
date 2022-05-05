@@ -158,9 +158,7 @@ exports.dish_add = (req, res) => {
 }
   db.addDish(dish)
     .then(() => {
-      res.redirect('/admin', {
-        user:"user"
-      });
+      res.redirect('/admin');
     }).catch(err => {
       console.log(err);
     }
@@ -169,9 +167,7 @@ exports.dish_add = (req, res) => {
 exports.delete_dish = (req, res) => {
   db.deleteDish(req.params.id)
     .then(() => {
-      res.redirect('/admin',{
-        user:"user"
-      });
+      res.redirect('/admin');
     })
     .catch(err => {
       console.log(err);
