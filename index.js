@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser')
 require('dotenv').config();
 app.use(express.urlencoded({extended: false }));
 
-
+const port = process.env.PORT || 3000;
 const path = require('path');
 const public = path.join(__dirname,'public');
 
@@ -23,6 +23,6 @@ app.set('views', __dirname + '/views');
 
 app.use('/', dishesRouter)
 
-app.listen(3000, function() {
+app.listen(port, function() {
   console.log('listening on port 3000');
 });
