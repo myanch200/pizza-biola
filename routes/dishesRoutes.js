@@ -5,6 +5,7 @@ const controller = require('../controllers/dishesController');
 const userController = require('../controllers/usersController');
 router.get('/about', controller.aboutUs);
 router.get('/menu', controller.menu_page);
+router.get('/dishes/vote/:id', controller.vote);
 router.get('/dishes/delete/:id',verify, controller.delete_dish);
 router.get('/dishes/edit/:id',verify, controller.dish_edit_page);
 router.post('/dishes/edit/:id',verify,  controller.dish_edit);

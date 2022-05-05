@@ -52,7 +52,7 @@ exports.dishes = [
     name: "Pasta Carbonara",
     description: `arbonara (Italian: [karboˈnaːra]) is an Italian pasta dish from Rome made with eggs, hard cheese, cured pork, and black pepper. The dish arrived at its modern form, with its current name, in the middle of the 20th century. The cheese is usually Pecorino Romano, Parmigiano-Reggiano, or a combination of the two.`,
     price: 10.00,
-    image: 'carbonara.jpeg',
+    image: 'pasta.jpeg',
     show_on_menu: true,
     votes: 1,
     _id: "vKEq3ML9y947pvhB",

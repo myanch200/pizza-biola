@@ -126,9 +126,7 @@ exports.dish_edit = (req, res) => {
   console.log(dish.show_on_menu);
   db.updateDish(req.params.id, dish)
     .then(() => {
-      res.redirect('/admin',{
-        user:"user"
-      });
+      res.redirect('/admin');
     })
     .catch(err => {
       console.log(err);
@@ -180,3 +178,15 @@ exports.delete_dish = (req, res) => {
     });
 }
 
+
+exports.vote = (req, res) => {
+  db.incrementVotes(req.params.id)
+    .then(() => {
+      console.log('voted');
+      res.redirect('/dishes/' + req.params.id);
+    })
+    .catch(err => {
+      console.log("Catched");
+      console.log(err);
+    });
+}

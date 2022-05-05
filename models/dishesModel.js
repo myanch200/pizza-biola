@@ -137,6 +137,24 @@ class Dish {
       });
     });
   }
+  incrementVotes(id) {
+    return new Promise((resolve, reject) => {
+      this.db.findOne({ _id: id }, (err, doc) => {
+        if (err) {
+          reject(err);
+        } else {
+          doc.votes++;
+          this.db.update({ _id: id }, doc, {}, (err, numReplaced) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(numReplaced);
+            }
+          });
+        }
+      });
+    });
+  }
 }
 
 module.exports = Dish;
