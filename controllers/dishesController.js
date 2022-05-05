@@ -1,6 +1,6 @@
 const dishesDAO = require("../models/dishesModel");
 const db = new dishesDAO("dishes.nedb");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 db.init();
 exports.index = (req, res) => {

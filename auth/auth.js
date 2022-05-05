@@ -5,7 +5,7 @@ Although I have made some changes to the code full credit goes to the original @
 
 */
 
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const userModel = require("../models/usersModel");
 const jwt = require("jsonwebtoken");
 
@@ -30,7 +30,7 @@ exports.login = function (req, res, next) {
       
       let payload = { email: user.email };
       let accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
-          expiresIn: 300,
+          expiresIn: "14d",
         });
       res.cookie("jwt", accessToken);
       next();
@@ -38,6 +38,7 @@ exports.login = function (req, res, next) {
     });
   });
 };
+
 exports.verify = function (req, res, next) {
   let accessToken = req.cookies.jwt;
   if (!accessToken) {
