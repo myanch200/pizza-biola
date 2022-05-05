@@ -1,4 +1,16 @@
 const slider = document.getElementsByClassName('carousel-item');
+if(slider && slider.length > 0){
+  for(let i = 0; i < slider.length; i++){
+    if(i == 0){
+      slider[i].classList.add('active');
+    }else{
+      slider[i].classList.remove('active');
+    }
+  }
+}
+
+
+
 const next = document.querySelector('.carousel-button-right');
 const prev = document.querySelector('.carousel-button-left');
 let position = 0;

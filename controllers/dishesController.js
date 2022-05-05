@@ -11,7 +11,9 @@ exports.index = (req, res) => {
 
   db.getAllDishes()
     .then(dishes => {
-      res.render('dishes/index', { dishes:dishes, user:user });
+      // get dishes with most votes
+      let mostVoted = dishes.sort((a, b) => b.votes - a.votes).slice(0, 3);
+      res.render('dishes/index', { dishes:dishes, user:user, mostVoted:mostVoted });
     })
     .catch(err => {
       console.log(err);
