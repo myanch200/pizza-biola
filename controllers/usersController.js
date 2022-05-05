@@ -8,7 +8,7 @@ exports.login_page = (req, res) => {
 exports.login = (req, res) => {
   db.getAllDishes()
     .then(dishes => {
-      res.render('dishes/index', {dishes: dishes,user:"user"});
+      res.redirect('/');
     })
     .catch(err => {
       console.log(err);
