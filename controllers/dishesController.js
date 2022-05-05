@@ -94,8 +94,14 @@ exports.admin_page = (req, res) => {
 exports.dish_edit_page = (req, res) => {
   db.getDish(req.params.id)
     .then(dish => {
-      let ingredients = dish.ingredients.map(ingredient => ingredient).join(', ');
-      let allergies = dish.allergies.map(allergy => allergy).join(', ');
+      let ingredients = null
+      if(dish.ingredients){
+        ingredients = dish.ingredients.map(ingredient => ingredient).join(', ');
+      }
+      let allergies = null
+      if(dish.allergies){
+        allergies = dish.allergies.map(allergy => allergy).join(', ');
+      }
       res.render('dishes/edit', { 
         dish: dish ,
         dish_ingredients: ingredients,
