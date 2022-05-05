@@ -13,12 +13,19 @@
           <div class="nav-item">
             <a href="/about">About</a>
           </div>
+          {{#user}}
            <div class="nav-item">
               <a href="/admin">Admin</a>
           </div>
           <div class="nav-item">
+              <a href="/logout">Logout</a>
+          </div>
+          {{/user}}
+          {{^user}}
+          <div class="nav-item">
               <a href="/login">Login</a>
           </div>
+          {{/user}} 
          
       </div>
     </div>

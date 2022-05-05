@@ -4,9 +4,14 @@ const bcrypt = require('bcrypt');
 
 db.init();
 exports.index = (req, res) => {
+  let user = null
+  if(req.cookies.jwt){
+    user = "user"
+  }
+
   db.getAllDishes()
     .then(dishes => {
-      res.render('dishes/index', { dishes });
+      res.render('dishes/index', { dishes:dishes, user:user });
     })
     .catch(err => {
       console.log(err);
@@ -14,9 +19,14 @@ exports.index = (req, res) => {
 };
 
  exports.allDishes = (req, res) => {
+  let user = null
+  if(req.cookies.jwt){
+    user = "user"
+  }
+
     db.getAllDishes()
       .then(dishes => {
-        res.render('dishes/index', {dishes: dishes});
+        res.render('dishes/index', {dishes: dishes, user:user});
       })
       .catch(err => {
         console.log(err);
@@ -24,10 +34,14 @@ exports.index = (req, res) => {
 };
 
 exports.dishDetail = (req, res) => {
-  
+  let user = null
+  if(req.cookies.jwt){
+    user = "user"
+  }
+
   db.getDish(req.params.id)
     .then(dish => {
-      res.render('dishes/detail', {dish: dish});
+      res.render('dishes/detail', {dish: dish, user:user});
     })
     .catch(err => {
       console.log(err);
@@ -35,20 +49,28 @@ exports.dishDetail = (req, res) => {
 };
 
 
-exports.test = (req, res) => {
-  res.send('Hello from the test controller!');
-};
+
 
 exports.aboutUs = (req, res) => {
-  res.render('dishes/about',{});
+  let user = null
+  if(req.cookies.jwt){
+    user = "user"
+  }
+
+  res.render('dishes/about',{user:user});
 }
 
 exports.menu_page = (req, res) => {
+  let user = null
+  if(req.cookies.jwt){
+    user = "user"
+  }
+
   db.getAllDishes()
     .then(dishes => {
       let pizzas = dishes.filter(dish => dish.category === 'pizza');
       let pasta = dishes.filter(dish => dish.category === 'pasta');
-      res.render('dishes/menu', {pizzas: pizzas, pastas: pasta});
+      res.render('dishes/menu', {pizzas: pizzas, pastas: pasta, user:user});
     })
     .catch(err => {
       console.log(err);
@@ -58,7 +80,8 @@ exports.menu_page = (req, res) => {
 exports.admin_page = (req, res) => {
   db.getDishesForAdmin()
     .then(dishes => {
-      res.render('users/admin', { dishes });
+      res.render('users/admin', { dishes,
+        user:"user" });
     })
     .catch(err => {
       console.log(err);
@@ -74,7 +97,8 @@ exports.dish_edit_page = (req, res) => {
       res.render('dishes/edit', { 
         dish: dish ,
         dish_ingredients: ingredients,
-        dish_allergies: allergies
+        dish_allergies: allergies,
+        user:"user"
       });
     })
     .catch(err => {
@@ -102,7 +126,9 @@ exports.dish_edit = (req, res) => {
   console.log(dish.show_on_menu);
   db.updateDish(req.params.id, dish)
     .then(() => {
-      res.redirect('/admin');
+      res.redirect('/admin',{
+        user:"user"
+      });
     })
     .catch(err => {
       console.log(err);
@@ -110,7 +136,9 @@ exports.dish_edit = (req, res) => {
 }
   
 exports.dish_add_page = (req, res) => {
-  res.render('dishes/add', {});
+  res.render('dishes/add', {
+    user:"user"
+  });
 }
 
 exports.dish_add = (req, res) => {
@@ -132,7 +160,9 @@ exports.dish_add = (req, res) => {
 }
   db.addDish(dish)
     .then(() => {
-      res.redirect('/admin');
+      res.redirect('/admin', {
+        user:"user"
+      });
     }).catch(err => {
       console.log(err);
     }
@@ -141,7 +171,9 @@ exports.dish_add = (req, res) => {
 exports.delete_dish = (req, res) => {
   db.deleteDish(req.params.id)
     .then(() => {
-      res.redirect('/admin');
+      res.redirect('/admin',{
+        user:"user"
+      });
     })
     .catch(err => {
       console.log(err);

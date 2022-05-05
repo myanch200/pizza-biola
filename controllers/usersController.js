@@ -1,27 +1,22 @@
 const userDao = require('../models/usersModel.js');
-const dishDao = require('../models/dishesModel.js');
-const db = new dishDao();
+const dishesDAO = require("../models/dishesModel");
+const db = new dishesDAO("../dishes.nedb");
 exports.login_page = (req, res) => {
   res.render('users/login', {});
 }
 
 exports.login = (req, res) => {
-  userDao.lookup(req.body.username, (err, user) => {
-    if (err) {
-      res.status(500).send(err);
-    } else if (user == null) {
-      res.status(404).send('User not found');
-    } else {
-      bcrypt.compare(req.body.password, user.password, (err, result) => {
-        if (err) {
-          res.status(500).send(err);
-        } else if (result) {
-          req.session.user = user;
-          res.redirect('/');
-        } else {
-          res.status(401).send('Wrong password');
-        }
-      });
-    }
-  });
+  db.getAllDishes()
+    .then(dishes => {
+      res.render('dishes/index', {dishes: dishes,user:"user"});
+    })
+    .catch(err => {
+      console.log(err);
+    }); 
+}
+
+exports.logout = (req, res) => {
+  console.log("logout");
+  res.clearCookie("jwt");
+  res.redirect('/');
 }
