@@ -1,6 +1,7 @@
 # Pizza Biola
 
 - [Pizza Biola](#pizza-biola)
+  - [Live demo](#live-demo)
   - [⭐ Features](#-features)
   - [🔧  How to setup and run](#--how-to-setup-and-run)
   - [🏞 Images from the website](#-images-from-the-website)
@@ -14,7 +15,12 @@
     - [Add New Dish page](#add-new-dish-page)
     - [Edit Dish page](#edit-dish-page)
   - [Resources used in this project](#resources-used-in-this-project)
-  - [Live demo](#live-demo)
+
+## Live demo 
+
+<a href="https://pizza-biola.herokuapp.com/" target="_blank">Pizza Biola</a>
+
+*Since I am using the free version , please give a couple of minutes to start*
 
 ## ⭐ Features
 
@@ -142,9 +148,3 @@ The for is exactly the same with the only difference  being that every field is 
     </tr>
   </tbody>
 </table>
-
-## Live demo 
-
-<a href="https://pizza-biola.herokuapp.com/" target="_blank">Pizza Biola</a>
-
-*Since I am using the free version , please give a couple of minutes to start*
