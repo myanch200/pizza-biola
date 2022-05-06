@@ -44,8 +44,13 @@
           </label>
           <div class="text-yellow-700 flex flex-wrap flex-col space-y-6 md:flex-row gap-1 md:space-y-0">
             {{#ingredients}}
-            <div class="flex items-center bg-gray-800 p-4">
+            <div class="flex items-center ima bg-gray-800 p-4">
               <p class="text-yellow-700">{{.}}</p>
+            </div>
+            {{/ingredients}}
+            {{^ingredients}}
+            <div class="flex items-center bg-gray-800 p-4">
+              <p class="text-red-500 ">No information about the ingredients here. Sorry for the inconvenience </p>
             </div>
             {{/ingredients}}
           </div>
@@ -66,6 +71,11 @@
             {{#allergies}}
             <div class="flex items-center bg-red-600 p-4">
               <p class="text-white">{{.}}</p>
+            </div>
+            {{/allergies}}
+            {{^allergies}}
+            <div class="flex items-center bg-gray-800 p-4">
+              <p class="text-red-500 ">No information about the allergies here. Sorry for the inconvenience </p>
             </div>
             {{/allergies}}
           </div>

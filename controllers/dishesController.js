@@ -43,6 +43,13 @@ exports.dishDetail = (req, res) => {
 
   db.getDish(req.params.id)
     .then(dish => {
+      // if ingredients is empty string, set it to null
+      if(dish.ingredients.length === 1 && dish.ingredients[0] === ''){
+        dish.ingredients = null;
+      }
+      if(dish.allergies.length === 1 && dish.allergies[0] === ''){
+        dish.allergies = null;
+      }
       res.render('dishes/detail', {dish: dish, user:user});
     })
     .catch(err => {
@@ -115,6 +122,7 @@ exports.dish_edit_page = (req, res) => {
 }
 
 exports.dish_edit = (req, res) => {
+  
   if(req.body.show_on_menu === 'on'){
     req.body.show_on_menu = true;
   } else {
