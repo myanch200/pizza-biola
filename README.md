@@ -59,6 +59,10 @@ start the application
   npm start
 ```
 
+Login credentials
+email: example@gmail.com
+password:example
+
 ## 🏞 Images from the website
 
 ### Homepage most wanted section
