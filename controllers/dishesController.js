@@ -3,6 +3,8 @@ const db = new dishesDAO();
 const bcrypt = require('bcryptjs');
 
 db.init();
+
+
 exports.index = (req, res) => {
   let user = null
   if(req.cookies.jwt){
@@ -20,6 +22,7 @@ exports.index = (req, res) => {
     });
 };
 
+
  exports.allDishes = (req, res) => {
   let user = null
   if(req.cookies.jwt){
@@ -34,6 +37,7 @@ exports.index = (req, res) => {
         console.log(err);
       });
 };
+
 
 exports.dishDetail = (req, res) => {
   let user = null
@@ -180,6 +184,7 @@ exports.dish_add = (req, res) => {
     }
   );
 }
+
 exports.delete_dish = (req, res) => {
   db.deleteDish(req.params.id)
     .then(() => {
